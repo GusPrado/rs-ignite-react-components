@@ -1,4 +1,13 @@
-export function Header({ selectedGenre }) {
+interface GenreResponseProps {
+  id: number;
+  name: "action" | "comedy" | "documentary" | "drama" | "horror" | "family";
+  title: string;
+}
+
+interface IHeaderProps {
+  selectedGenre: GenreResponseProps;
+}
+export function Header({ selectedGenre }: IHeaderProps) {
   return (
     <header>
       <span className="category">
