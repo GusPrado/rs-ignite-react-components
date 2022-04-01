@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Content } from "./components/Content";
-import { Header } from "./components/Header";
 import { SideBar } from "./components/SideBar";
 import { api } from "./services/api";
 import "./styles/content.scss";
@@ -58,25 +57,12 @@ export function App() {
 
   return (
     <div style={{ display: "flex", flexDirection: "row" }}>
-      <nav className="sidebar">
-        <span>
-          Watch<p>Me</p>
-        </span>
-
-        <SideBar
-          genres={genres}
-          handleClickButton={handleClickButton}
-          selectedGenreId={selectedGenreId}
-        />
-      </nav>
-
-      <div className="container">
-        <Header selectedGenre={selectedGenre} />
-
-        <main>
-          <Content movies={movies} />
-        </main>
-      </div>
+      <SideBar
+        genres={genres}
+        handleClickButton={handleClickButton}
+        selectedGenreId={selectedGenreId}
+      />
+      <Content movies={movies} selectedGenre={selectedGenre} />
     </div>
   );
 }
